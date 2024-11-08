@@ -1,5 +1,5 @@
 {% extends 'base/base.html' %}
-
+{% load static %}
 {% block title %}
 Home
 {% endblock title %}
@@ -83,13 +83,14 @@ Home
                 </div>
             </div>
             <div class="col-lg-6" data-aos="fade-left">
-                <img src="/placeholder.svg?height=400&width=400" alt="Food delivery illustration" class="img-fluid">
+                <img src="{% static 'images/Hamburger-and-french-fries-paper-box.jpg' %}"
+                    alt="Food delivery illustration" class="img-fluid rounded-3">
             </div>
         </div>
     </div>
 </section>
 
-<section class="py-5">
+<section class="py-4">
     <div class="container">
         <div class="row g-4">
 
@@ -101,7 +102,7 @@ Home
                     <div class="card-body text-center">
                         <h5 class="card-title">{{item.name}}</h5>
                         <div class="price mb-3">£{{item.price}}</div>
-                        <p class="card-text">{{item.description}}
+                        <p class="card-text">{{item.description| truncatewords:20}}
                         </p>
                         <button class="btn btn-primary w-100">ORDER</button>
                     </div>
