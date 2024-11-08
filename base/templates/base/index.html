@@ -92,19 +92,24 @@ Home
 <section class="py-5">
     <div class="container">
         <div class="row g-4">
+
+            {% for item in items %}
+
             <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
                 <div class="card h-100 food-card">
-                    <img src="/placeholder.svg?height=200&width=300" class="card-img-top" alt="Bean Salad">
+                    <img src="{{ item.image.url }}" class="card-img-top" alt="Bean Salad">
                     <div class="card-body text-center">
-                        <h5 class="card-title">BEAN SALAD</h5>
-                        <div class="price mb-3">£20.00</div>
-                        <p class="card-text">Sed vulputate vestibulum leo, sed vulputate ipsum rutrum ut. Etiam...
+                        <h5 class="card-title">{{item.name}}</h5>
+                        <div class="price mb-3">£{{item.price}}</div>
+                        <p class="card-text">{{item.description}}
                         </p>
                         <button class="btn btn-primary w-100">ORDER</button>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+            {% endfor %}
+
+            <!-- <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
                 <div class="card h-100 food-card">
                     <div class="featured-badge">Featured</div>
                     <img src="/placeholder.svg?height=200&width=300" class="card-img-top" alt="Garden Salad">
@@ -128,7 +133,7 @@ Home
                         <button class="btn btn-primary w-100">ORDER</button>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </section>
