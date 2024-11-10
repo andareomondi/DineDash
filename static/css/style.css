@@ -22,7 +22,7 @@
         .hero-section {
             min-height: 500px;
             background: linear-gradient(rgba(var(--bs-body-bg-rgb), 0.9), rgba(var(--bs-body-bg-rgb), 0.9)),
-                url('/placeholder.svg?height=600&width=1200') center/cover;
+                url('/static/images/Hamburger-and-french-fries-paper-box.jpg') center/cover;
         }
 
         .category-icon {
