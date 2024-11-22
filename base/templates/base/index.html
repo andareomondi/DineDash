@@ -59,7 +59,7 @@ Home
                 <i class="bi bi-cart3"></i>
                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary"
                     id="cartitemstotal">
-                    2
+                    {{total_items}}
                 </span>
             </a>
         </div>
@@ -100,12 +100,12 @@ Home
             <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
                 <div class="card h-100 food-card">
                     <img src="{{ item.image.url }}" class="card-img-top" alt="Bean Salad">
-                    <div class="card-body text-center">
+                    <div class="card-body text-center" data-id="{{ item.id }}">
                         <h5 class="card-title">{{item.name}}</h5>
                         <div class="price mb-3">£{{item.price}}</div>
                         <p class="card-text">{{item.description| truncatewords:20}}
                         </p>
-                        <button class="btn btn-primary w-100">ORDER</button>
+                        <button class="add-to-cart btn btn-primary w-100">ORDER</button>
                     </div>
                 </div>
             </div>

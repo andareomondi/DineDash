@@ -36,11 +36,16 @@
                 </div>
                 <div class="modal-body">
                     <div id="cartItems">
+
+                        {% for item in cart.cartitem_set.all %}
+                        <p>{{item.product.name}}:{{item.product.price}}</p>
+                        {% endfor %}
+
                         <!-- Cart items will be dynamically added here -->
                     </div>
                     <div class="d-flex justify-content-between mt-3">
                         <h5>Total:</h5>
-                        <h5 id="cartTotal">£0.00</h5>
+                        <h5 id="cartTotal">£{{cart.total_price}}</h5>
                     </div>
                 </div>
                 <div class="modal-footer">
