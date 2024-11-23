@@ -1,9 +1,7 @@
 from django.shortcuts import render
 from django.views import View
-from .models import Product
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from .models import *
-from django.http import HttpResponse
 # Create your views here.
 class Home(View):
     def get(self, request):
@@ -34,16 +32,21 @@ class Home(View):
                 'items':items
             }
             return render(request, 'base/home2.html', context=context)
-    def post(self, request):
-        value = request.POST.get('value')
-        cart = Cart.objects.get(id=cart.id)
-        print(value)
-        return render(request, 'base/index.html')
-    
-class Test(View):
-    def get(self, request):
-        data = {
-            'name': 'John',
-        }
-        return JsonResponse(data)
+
+# function based views to handle the crud operations and serve them using ajax
+def add_to_cart(request):
+    pass
+
+def remove_from_cart(request):
+    pass
+
+def checkout(request):
+    pass
+
+def login(request):
+    pass
+
+def register(request):
+    pass
+
 
