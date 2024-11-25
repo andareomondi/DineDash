@@ -1,5 +1,3 @@
-Got it! Here's the formatted README content that you can easily copy and paste into your GitHub repository:
-
 ---
 
 # DineDash
