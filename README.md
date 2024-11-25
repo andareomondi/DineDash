@@ -88,8 +88,8 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Contact
 
-For any questions or support, you can reach out to the repository owner through the GitHub repository.
+For any questions or support, you can reach out through email.
 
 ---
 
-Feel free to add more details or sections as needed. Let me know if there's anything else you'd like to include! 🚀📄
+Ummm thank you for reading this. I hope you found it somewhat informative. If you have any questions or need further❤
