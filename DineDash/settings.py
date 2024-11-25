@@ -10,9 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
+import os
 from pathlib import Path
 from dotenv import load_dotenv
-import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,8 +22,6 @@ load_dotenv()
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-
-# using dotenv to load the secret keys and api keys from the .env file
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -41,15 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'whitenoise.runserver_nostatic',
-# placing the whitenoise above the prebuilt staticfiles command to override it 
     'django.contrib.staticfiles',
-    'managment',
     'base',
+    'managment',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-# adding the whitenoise middleware for it to serve the files
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -58,8 +54,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-# seting up the session middleware
-SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 
 ROOT_URLCONF = 'DineDash.urls'
 
@@ -132,15 +126,29 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+# ------------------------------------
 # staticfiles for production setup
 # configuring whitenoise to serve the static files in the staticfiles dirs
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # setting the permanent location for the staticfiles incase they get deleted
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# ------------------------------------
+
 # adding media files root and url
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# custom authentication backend 
+
+AUTH_USER_MODEL = 'base.Customer'
+AUTHENTICATION_BACKENDS = [
+    'base.auth_backends.AuthBackend',
+    'django.contrib.auth.backends.ModelBackend'
+]
